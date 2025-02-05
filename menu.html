@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="./css/services.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+  </head>
+  <body>
+    <header class="wrapper">
+      <div class="container">
+        <div class="overlay"></div>
+      </div>
+
+      <h1 class="text-upper">Our Menu</h1>
+      <nav class="nav-bar">
+        <ul>
+          <li class="logo">
+            <img id="logo-photo" src="./images/utensil.png" alt="utensils" />
+            <h2 class="resturant-name">Restaurant</h2>
+          </li>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="aboutus.html">ABOUT</a></li>
+          <li><a href="services.html">SERVICE</a></li>
+          <li><a href="menu.html">MENU</a></li>
+          <li><a href="cart.html">🛒 CART</a></li>
+          <li><a href="login_page.html" id="LOG">LOGIN</a></li>
+          <li class="tablebooking">
+            <a href="booktable.html" class="booking-btn">BOOK A TABLE</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-section">
+      <h2 class="heading1">Menu</h2>
+      <div class="menu-bar">
+        <!-- Dynamic Menu Items Will Be Loaded Here -->
+      </div>
+    </main>
+
+    <script>
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+      function handleScroll() {
+        const boxes = document.querySelectorAll(".box");
+        boxes.forEach((box) => {
+          if (isInViewport(box)) {
+            box.classList.add("show");
+          }
+        });
+      }
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+    </script>
+
+    <script src="./JS/menu.js"></script>
+    <script src="./JS/menuItem.js"></script>
+    <script src="./JS/menuDynamic.js"></script>
+  </body>
+</html>
